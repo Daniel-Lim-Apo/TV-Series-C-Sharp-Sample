@@ -1,0 +1,12 @@
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/bin/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.deps.json
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/bin/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.runtimeconfig.json
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/bin/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.runtimeconfig.dev.json
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/bin/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.dll
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/bin/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.pdb
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/obj/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.csprojAssemblyReference.cache
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/obj/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.AssemblyInfoInputs.cache
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/obj/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.AssemblyInfo.cs
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/obj/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.csproj.CoreCompileInputs.cache
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/obj/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.dll
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/obj/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.pdb
+/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/obj/Debug/netcoreapp3.1/TV-Series-C-Sharp-Sample.genruntimeconfig.cache

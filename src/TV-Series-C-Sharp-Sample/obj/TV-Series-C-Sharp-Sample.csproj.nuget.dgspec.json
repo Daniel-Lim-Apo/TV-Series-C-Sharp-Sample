@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/TV-Series-C-Sharp-Sample.csproj": {}
+  },
+  "projects": {
+    "/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/TV-Series-C-Sharp-Sample.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/TV-Series-C-Sharp-Sample.csproj",
+        "projectName": "TV-Series-C-Sharp-Sample",
+        "projectPath": "/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/TV-Series-C-Sharp-Sample.csproj",
+        "packagesPath": "/Users/daniellim-apo/.nuget/packages/",
+        "outputPath": "/Users/daniellim-apo/Projects/DIO/TV-Series-C-Sharp-Sample/src/TV-Series-C-Sharp-Sample/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/daniellim-apo/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.409/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
