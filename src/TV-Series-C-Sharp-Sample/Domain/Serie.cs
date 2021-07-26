@@ -1,7 +1,8 @@
 using System;
+using TV_Series_C_Sharp_Sample.Enum;
 
 namespace TV_Series_C_Sharp_Sample.Domain{
-    public class Serie:InitialObj{
+    public class Serie:BaseEntity{
         
         private Category category;
         private string title;
@@ -19,7 +20,7 @@ namespace TV_Series_C_Sharp_Sample.Domain{
             this.category = _category;
             this.title = _title;
             this.description = _description;
-            this.year;
+            this.year = _year;
             this.excluded = false;
         }
 
@@ -33,15 +34,18 @@ namespace TV_Series_C_Sharp_Sample.Domain{
                 {
                     myReturn += "Status: EXCLUDED";
                 }
+
+            return myReturn;
         }
 
-        public string retornaTitle(){
-            return this.title;
-        }
+        public int GetById() => this.id;
+        public Category GetCategory() => this.category;
+        
+        public string GetTitle() => this.title;
+        
+        public string GetDescription() => this.description;
 
-        public int retornaId(){
-            return this.Id;
-        }
+        public bool GetExcluded() => this.excluded;
 
     }
 }

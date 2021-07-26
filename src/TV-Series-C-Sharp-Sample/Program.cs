@@ -1,6 +1,9 @@
 ﻿using System;
-using TV_Series_C_Sharp_Sample.Class;
+using System.Collections.Generic;
+using System.IO;
+using TV_Series_C_Sharp_Sample.Domain;
 using TV_Series_C_Sharp_Sample.Infra;
+using TV_Series_C_Sharp_Sample.Infra.Data;
 
 namespace TV_Series_C_Sharp_Sample
 {
@@ -15,27 +18,27 @@ namespace TV_Series_C_Sharp_Sample
             {
                 switch (userOption)
                 {
-                case "1":
-                    ListSeries();
-                    break;    
-                case "2":
-                    InsertSerie();
-                    break;    
-                case "3":
-                    UpdateSerie();
-                    break;    
-                case "4":
-                    DeleteSeries();
-                    break;    
-                case "g":
-                    GetSerieInfo();
-                    break;    
-                case "C":
-                    Console.Clear();
-                    break;    
-                
-                default:
-                    throw new ArgumentOutOfRangeException();
+                    case "1":
+                        ListSeries();
+                        break;    
+                    case "2":
+                        InsertSerie();
+                        break;    
+                    case "3":
+                        UpdateSerie();
+                        break;    
+                    case "4":
+                        DeleteSeries();
+                        break;    
+                    case "g":
+                        GetSerieInfo();
+                        break;    
+                    case "C":
+                        Console.Clear();
+                        break;    
+                    
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
                 userOption = GetUserOption();
 
@@ -45,27 +48,94 @@ namespace TV_Series_C_Sharp_Sample
 
         private static void GetSerieInfo()
         {
-            throw new NotImplementedException();
+            Console.Write("Type the serie number: ");
+            int id = int.Parse(Console.ReadLine());
+            Serie serie = serieRepository.GetById(id);       
+
+            Console.WriteLine(serie);
+
         }
 
         private static void DeleteSeries()
         {
-            throw new NotImplementedException();
+            Console.Write("Type the serie number: ");
+            int id = int.Parse(Console.ReadLine());
+            serieRepository.Delete(id);
         }
 
         private static void UpdateSerie()
         {
-            throw new NotImplementedException();
+            Console.Write("Type the serie number: ");
+            int _id = int.Parse(Console.ReadLine());
+
+            foreach (int i in Enum.GetValues(typeof(Category))){
+                Console.WriteLine("{0}-{1}", 1, Enum.GetName(typeof(Category),i));
+            }
+
+            Console.Write("Choose the category number from above: ");
+            int _category = int.Parse(Console.ReadLine());
+
+            Console.Write("Write the title: ");
+            String _title = Console.ReadLine();
+
+            Console.Write("Write the start year: ");
+            String _year = Console.ReadLine();
+
+            Console.Write("Write the description: ");
+            String _description = Console.ReadLine();
+
+            Serie _serie = new Serie(_id, _category, _title, _description, false);
+
+            serieRepository.Update(_serie);
+
         }
 
         private static void InsertSerie()
         {
-            throw new NotImplementedException();
-        }
+            Console.Write("Type the serie number: ");
+            int _id = int.Parse(Console.ReadLine());
+
+            foreach (int i in Enum.GetValues(typeof(Category))){
+                Console.WriteLine("{0}-{1}", 1, Enum.GetName(typeof(Category),i));
+            }
+
+            Console.Write("Choose the category number from above: ");
+            int _category = int.Parse(Console.ReadLine());
+
+            Console.Write("Write the title: ");
+            String _title = Console.ReadLine();
+
+            Console.Write("Write the start year: ");
+            String _year = Console.ReadLine();
+
+            Console.Write("Write the description: ");
+            String _description = Console.ReadLine();
+
+            Serie _serie = new Serie(_id, _category, _title, _description, false);
+
+            serieRepository.Update(_serie);        }
 
         private static void ListSeries()
         {
-            throw new NotImplementedException();
+            Console.Write("Series List: ");
+            
+            IEnumerable<Serie> seriesList = serieRepository.GetAll();
+
+            if (seriesList.Count() = 0)
+            {
+                Console.Write("No series listed.");
+            }
+            else
+            {
+                foreach(Serie serie in seriesList){
+                    Console.WriteLine("ID: {0} - {1} {2}", serie.GetById, serie.GetTitle, serie.GetExcluded ? "* EXCLUDED *" : "" );
+
+                }
+
+            }
+
+
+
         }
 
         private static string GetUserOption()
@@ -82,8 +152,8 @@ namespace TV_Series_C_Sharp_Sample
             Console.WriteLine("X - eXit");
             Console.WriteLine();
 
-            string userOption = Console.ReadLine().ToUpper();
-            Console.WriteLine();
+            String userOption = Console.ReadLine();
+            Console.WriteLine("Aqui");
             return userOption;
 
         }

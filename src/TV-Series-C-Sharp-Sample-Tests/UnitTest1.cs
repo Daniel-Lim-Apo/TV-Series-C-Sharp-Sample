@@ -1,6 +1,6 @@
 using System;
 using Xunit;
-using TV_Series_C_Sharp_Sample.Class;
+using TV_Series_C_Sharp_Sample.Domain;
 
 namespace TV_Series_C_Sharp_Sample_Tests
 {
@@ -16,7 +16,7 @@ namespace TV_Series_C_Sharp_Sample_Tests
             serie.Insert(serie);
 
             // Assert
-            Assert.Contains(serie, serie.ListGetSerieInfo(serie.Id)
+            Assert.Contains(serie, serie.ListGetSerieInfo(serie.Id));
                 
         }
 
@@ -30,26 +30,32 @@ namespace TV_Series_C_Sharp_Sample_Tests
 
             SerieRepository serieRepository = new SerieRepository();
             
-            IEnumerable<Serie> series = serieRepository.GetAll();
 
 
             //Act
+            serieRepository.Save(serie1);
+            serieRepository.Save(serie2);
+            serieRepository.Save(serie2);
+            IEnumerable<Serie> series = serieRepository.GetAll();
 
             //Assert
+                 series.Contains(serie1);
 
-                            ListSeries();
-                    break;    
-                case "2":
-                    InsertSerie();
-                    break;    
-                case "3":
-                    UpdateSerie();
-                    break;    
-                case "4":
-                    DeleteSeries();
-                    break;    
-                case "g":
-                    GetSerieInfo();
 
+            // ListSeries();
+            //         break;    
+            //     case "2":
+            //         InsertSerie();
+            //         break;    
+            //     case "3":
+            //         UpdateSerie();
+            //         break;    
+            //     case "4":
+            //         DeleteSeries();
+            //         break;    
+            //     case "g":
+            //         GetSerieInfo();
+
+        }
     }
 }
