@@ -35,10 +35,10 @@ return null;
 return null;
         }
         
-        Task <IEnumerable<Serie>> IBaseRepository<Serie>.GetAll(){
+        Task <List<Serie>> IBaseRepository<Serie>.GetAll(){
 return null;
         }
-        Task<IEnumerable<Serie>> IBaseRepository<Serie>.GetWhere(Expression<Func<Serie, bool>> predicate){
+        Task<List<Serie>> IBaseRepository<Serie>.GetWhere(Expression<Func<Serie, bool>> predicate){
 return null;
         }
 

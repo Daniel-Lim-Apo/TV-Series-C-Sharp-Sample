@@ -122,17 +122,18 @@ namespace TV_Series_C_Sharp_Sample
         {
             Console.Write("Series List: ");
             
-            IEnumerable<Serie> seriesList = await serieRepository.GetAll();
+            List<Serie> seriesList = await serieRepository.GetAll();
+
+            Console.WriteLine();
 
             if (seriesList.Count<Serie>() == 0)
             {
-                Console.Write("No series listed.");
+                Console.WriteLine("No series listed.");
             }
             else
             {
                 foreach(Serie serie in seriesList){
 
-                    
                     Console.WriteLine("ID: {0} - {1} {2}", serie.GetId(), serie.GetTitle(), serie.GetExcluded() ? "* EXCLUDED *" : "" );
 
                 }

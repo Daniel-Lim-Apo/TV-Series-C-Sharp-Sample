@@ -14,10 +14,7 @@ namespace TV_Series_C_Sharp_Sample.Infra{
         {
         }
 
-        Task Add(Serie entity)
-        {
-            throw new NotImplementedException();
-        }
+        List<Serie> seriesList = new List<Serie>();
 
         Task<int> CountAll()
         {
@@ -39,9 +36,10 @@ namespace TV_Series_C_Sharp_Sample.Infra{
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Serie>> GetAll()
+        public async Task<List<Serie>> GetAll()
         {
-            throw new NotImplementedException();
+            await Task.Delay(1);
+            return seriesList;
         }
 
         public Task<Serie> GetById(int id)
@@ -49,7 +47,7 @@ namespace TV_Series_C_Sharp_Sample.Infra{
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Serie>> GetWhere(Expression<Func<Serie, bool>> predicate)
+        public Task<List<Serie>> GetWhere(Expression<Func<Serie, bool>> predicate)
         {
             throw new NotImplementedException();
         }
@@ -71,7 +69,8 @@ namespace TV_Series_C_Sharp_Sample.Infra{
 
         Task IBaseRepository<Serie>.Add(Serie entity)
         {
-            throw new NotImplementedException();
+            seriesList.Add(entity);
+            return Task.CompletedTask;
         }
 
         Task IBaseRepository<Serie>.Delete(int id)
@@ -81,7 +80,7 @@ namespace TV_Series_C_Sharp_Sample.Infra{
 
         Task<int> IBaseRepository<Serie>.CountAll()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(seriesList.Count);
         }
 
         Task<int> IBaseRepository<Serie>.CountWhere(Expression<Func<Serie, bool>> predicate)
