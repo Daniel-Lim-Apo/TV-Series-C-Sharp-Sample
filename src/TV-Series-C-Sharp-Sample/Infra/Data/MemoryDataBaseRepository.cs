@@ -7,10 +7,13 @@ using TV_Series_C_Sharp_Sample.Domain;
 using TV_Series_C_Sharp_Sample.Interface;
 
 namespace TV_Series_C_Sharp_Sample.Infra.Data{
-    public class MemoryDataBaseRepository : ISerieRepository<Serie>, IBaseRepository<Serie>
+    public class MemoryDataBaseRepository : ISerieRepository<Serie>
     {
+        public MemoryDataBaseRepository()
+        {
+        }
 
-       Task<bool> ISerieRepository<Serie>.IsExcluded(int id){
+        Task<bool> ISerieRepository<Serie>.IsExcluded(int id){
         return null;
        }
 
@@ -28,7 +31,7 @@ return null;
         Task IBaseRepository<Serie>.Update(Serie entity){
 return null;
         }
-        Task IBaseRepository<Serie>.Delete(Serie entity){
+        Task IBaseRepository<Serie>.Delete(int id){
 return null;
         }
         

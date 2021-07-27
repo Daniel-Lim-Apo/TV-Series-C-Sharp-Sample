@@ -15,7 +15,7 @@ namespace TV_Series_C_Sharp_Sample.Interface{
         
         Task Add(T entity);
         Task Update(T entity);
-        Task Delete(T entity);
+        Task Delete(int id);
         
         Task <IEnumerable<T>> GetAll();
         Task<IEnumerable<T>> GetWhere(Expression<Func<T, bool>> predicate);

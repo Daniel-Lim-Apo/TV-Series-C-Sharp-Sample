@@ -4,7 +4,7 @@ using TV_Series_C_Sharp_Sample.Enum;
 namespace TV_Series_C_Sharp_Sample.Domain{
     public class Serie:BaseEntity{
         
-        private Category category;
+        private int categoryNumber;
         private string title;
         private string description;
         private int year;
@@ -15,9 +15,10 @@ namespace TV_Series_C_Sharp_Sample.Domain{
 
         }
 
-        public Serie(Category _category, string _title, string _description, int _year)
+        public Serie(int _id, int _categoryNumber, string _title, string _description, int _year)
         {
-            this.category = _category;
+            this.id = _id;
+            this.categoryNumber = _categoryNumber;
             this.title = _title;
             this.description = _description;
             this.year = _year;
@@ -26,7 +27,7 @@ namespace TV_Series_C_Sharp_Sample.Domain{
 
         public override string ToString(){ 
             string myReturn;
-            myReturn = "Category: " + this.category + Environment.NewLine;
+            myReturn = "Category: " + this.categoryNumber + Environment.NewLine;
             myReturn += "Title: " + this.title + Environment.NewLine;
             myReturn += "Description: " + this.description + Environment.NewLine;
             myReturn += "Year: " + this.year + Environment.NewLine;
@@ -38,8 +39,8 @@ namespace TV_Series_C_Sharp_Sample.Domain{
             return myReturn;
         }
 
-        public int GetById() => this.id;
-        public Category GetCategory() => this.category;
+        public int GetId() => this.id;
+        public int GetCategoryNumber() => this.categoryNumber;
         
         public string GetTitle() => this.title;
         
