@@ -10,18 +10,17 @@ namespace TV_Series_C_Sharp_Sample.Interface{
     public interface IBaseRepository<T> where T : BaseEntity
     {
 
-        Task<T> GetById(int id);
-        Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);
+        public Task<T> GetById(int id);
+        public Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);
+        public Task Add(T entity);
+        public Task Update(T entity);
+        public Task Delete(int id);
         
-        Task Add(T entity);
-        Task Update(T entity);
-        Task Delete(int id);
-        
-        Task <List<T>> GetAll();
-        Task<List<T>> GetWhere(Expression<Func<T, bool>> predicate);
+        public Task <List<T>> GetAll();
+        public Task<List<T>> GetWhere(Expression<Func<T, bool>> predicate);
 
-        Task<int> CountAll();
-        Task<int> CountWhere(Expression<Func<T, bool>> predicate);
+        public Task<int> CountAll();
+        public Task<int> CountWhere(Expression<Func<T, bool>> predicate);
         
     }
 

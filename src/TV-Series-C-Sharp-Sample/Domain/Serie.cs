@@ -40,6 +40,7 @@ namespace TV_Series_C_Sharp_Sample.Domain{
         }
 
         public int GetId() => this.id;
+        
         public int GetCategoryNumber() => this.categoryNumber;
         
         public string GetTitle() => this.title;

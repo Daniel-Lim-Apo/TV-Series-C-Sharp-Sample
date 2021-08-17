@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using TV_Series_C_Sharp_Sample.Domain;
 using TV_Series_C_Sharp_Sample.Enum;
 using TV_Series_C_Sharp_Sample.Infra;
-using TV_Series_C_Sharp_Sample.Infra.Data;
+
 
 namespace TV_Series_C_Sharp_Sample
 {
     class Program
     {
         static SerieRepository serieRepository = new SerieRepository();
-        static async Task Main(string[] args)
+        async Task Main(string[] args)
         {
             string userOption = GetUserOption();
 
@@ -33,7 +33,7 @@ namespace TV_Series_C_Sharp_Sample
                     case "4":
                         DeleteSeries();
                         break;    
-                    case "g":
+                    case "5":
                         GetSerieInfo();
                         break;    
                     case "C":
@@ -49,30 +49,69 @@ namespace TV_Series_C_Sharp_Sample
 
         }
 
-        private async static void GetSerieInfo()
+        private async void GetSerieInfo()
         {
             Console.Write("Type the serie number: ");
             int id = int.Parse(Console.ReadLine());
-            Serie serie = await serieRepository.GetById(id);       
+            Serie _serie = await serieRepository.GetById(id);       
 
-            Console.WriteLine(serie);
-
+            Console.WriteLine(_serie);
         }
 
-        private async static void DeleteSeries()
+        private async void DeleteSeries()
         {
             Console.Write("Type the serie number: ");
             int id = int.Parse(Console.ReadLine());
             await serieRepository.Delete(id);
         }
 
-        private static void UpdateSerie()
+        private async static void UpdateSerie()
+        {
+
+            Console.WriteLine("See the series to update: ");
+
+            await ListSeriesAsync();
+
+            List<Serie> seriesList = await serieRepository.GetAll();
+
+            if(seriesList.Count() < 1) {
+                Console.WriteLine("There are no series to update. Please, choose another option.");
+            }
+            else
+            {
+
+                Console.Write("Type the serie number that you want to update: ");
+                int _id = int.Parse(Console.ReadLine());
+
+                foreach (int i in System.Enum.GetValues(typeof(Category))){
+                    Console.WriteLine("{0}-{1}", i, System.Enum.GetName(typeof(Category), i));
+                }
+
+                Console.Write("Choose the category number from above: ");
+                int _categoryNumber = int.Parse(Console.ReadLine());
+
+                Console.Write("Write the title: ");
+                String _title = Console.ReadLine();
+
+                Console.Write("Write the start year: ");
+                int _year = int.Parse(Console.ReadLine());
+
+                Console.Write("Write the description: ");
+                String _description = Console.ReadLine();
+
+                Serie _serie = new Serie(_id, _categoryNumber, _title, _description, _year);
+
+                await serieRepository.Update(_serie);
+            }
+        }
+
+        private async void InsertSerie()
         {
             Console.Write("Type the serie number: ");
             int _id = int.Parse(Console.ReadLine());
 
             foreach (int i in System.Enum.GetValues(typeof(Category))){
-                Console.WriteLine("{0}-{1}", 1, System.Enum.GetName(typeof(Category),i));
+                Console.WriteLine("{0}-{1}", i, System.Enum.GetName(typeof(Category),i));
             }
 
             Console.Write("Choose the category number from above: ");
@@ -89,36 +128,11 @@ namespace TV_Series_C_Sharp_Sample
 
             Serie _serie = new Serie(_id, _categoryNumber, _title, _description, _year);
 
-            serieRepository.Update(_serie);
+            serieRepository.GetById .Add(_serie);  
 
         }
 
-        private static void InsertSerie()
-        {
-            Console.Write("Type the serie number: ");
-            int _id = int.Parse(Console.ReadLine());
-
-            foreach (int i in System.Enum.GetValues(typeof(Category))){
-                Console.WriteLine("{0}-{1}", 1, System.Enum.GetName(typeof(Category),i));
-            }
-
-            Console.Write("Choose the category number from above: ");
-            int _categoryNumber = int.Parse(Console.ReadLine());
-
-            Console.Write("Write the title: ");
-            String _title = Console.ReadLine();
-
-            Console.Write("Write the start year: ");
-            int _year = int.Parse(Console.ReadLine());
-
-            Console.Write("Write the description: ");
-            String _description = Console.ReadLine();
-
-            Serie _serie = new Serie(_id, _categoryNumber, _title, _description, _year);
-
-            serieRepository.Update(_serie);        }
-
-        private static async Task ListSeriesAsync()
+        public async static Task ListSeriesAsync()
         {
             Console.Write("Series List: ");
             
@@ -144,7 +158,7 @@ namespace TV_Series_C_Sharp_Sample
 
         }
 
-        private static string GetUserOption()
+        private string GetUserOption()
         {
             Console.WriteLine();
             Console.WriteLine("TV Series Sample - Options");
@@ -153,7 +167,8 @@ namespace TV_Series_C_Sharp_Sample
             Console.WriteLine("1 - List Series");
             Console.WriteLine("2 - Insert Serie");
             Console.WriteLine("3 - Update Serie");
-            Console.WriteLine("4 - Get Serie Info");
+            Console.WriteLine("4 - Delete Serie");
+            Console.WriteLine("5 - Get Serie Info");
             Console.WriteLine("C - Clear Screen");
             Console.WriteLine("X - eXit");
             Console.WriteLine();
